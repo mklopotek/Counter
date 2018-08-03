@@ -35,37 +35,45 @@ class Counter extends React.Component {
     render() {
         return (
             <div className='counter'>
-                <h1>{this.state.number}</h1>
+                <h1 className='counter-number'>{this.state.number}</h1>
+                <ul className='counter-buttons'>
+                <li>
                 <button 
-                    className='counter-button'
+                    className='counter-btn'
                     onClick={() => this.incHandler(1)}
                 >
                     + 1
                 </button>
                 <button
-                    className='counter-button'
+                    className='counter-btn'
                     onClick={() => this.decHandler(1)}
                 >
                     - 1
                 </button>
+                </li>
+                <li>
                 <button
-                    className='counter-button'
+                    className='counter-btn'
                     onClick={() => this.incHandler(5)}
                 >
                     + 5
                 </button>
                 <button
-                    className='counter-button'
+                    className='counter-btn'
                     onClick={() => this.decHandler(5)}
                 >
                     - 5
                 </button>
+                </li>
+                <li>
                 <button
-                    className='counter-button'
+                    className='.counter-btn counter-btn-restart'
                     onClick={() => this.restartNumber()}
                 >
                     RESTART
                 </button>
+                </li>
+                </ul>
             </div>)
     }
 }
