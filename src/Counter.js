@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Counter extends React.Component {
     constructor() {
@@ -6,6 +7,16 @@ class Counter extends React.Component {
         this.state = {
             number: 0
         }
+    }
+
+    componentDidMount(){
+        const lastState = JSON.parse(localStorage.getItem('magda-app-counter-homework')) || this.state
+
+        this.setState(lastState)
+    }
+
+    componentWillUnmount(){
+        localStorage.setItem('magda-app-counter-homework', JSON.stringify(this.state))
     }
 
     incHandler = (number) => {
@@ -34,6 +45,10 @@ class Counter extends React.Component {
 
     render() {
         return (
+            <div>
+            <div>
+                <Link to='/' style={{textDecoration: 'none'}} > Go to Dashboard </Link>
+            </div>
             <div className='counter'>
                 <h1 className='counter-number'>{this.state.number}</h1>
                 <ul className='counter-buttons'>
@@ -74,6 +89,7 @@ class Counter extends React.Component {
                 </button>
                 </li>
                 </ul>
+                </div>
             </div>)
     }
 }
